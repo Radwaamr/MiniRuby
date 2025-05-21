@@ -1,0 +1,13 @@
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\bin\Debug\MiniRubyParserGUI.exe.config
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\bin\Debug\MiniRubyParserGUI.exe
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\bin\Debug\MiniRubyParserGUI.pdb
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\bin\Debug\CalithaLib.dll
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\bin\Debug\GoldParserEngine.dll
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.csproj.AssemblyReference.cache
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.Form1.resources
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.Properties.Resources.resources
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.csproj.GenerateResource.cache
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.csproj.CoreCompileInputs.cache
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRuby.22509608.Up2Date
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.exe
+D:\PLDProject\MiniRubyParserGUI\MiniRubyParserGUI\obj\Debug\MiniRubyParserGUI.pdb

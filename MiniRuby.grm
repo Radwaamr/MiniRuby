@@ -1,0 +1,107 @@
+"Name"     = 'MiniRuby'
+"Author"   = 'Radwa Amr'
+"Version"  = '1.1'
+"About"    = 'A simplified Ruby-inspired scripting language supporting expressions, lists, and basic control structures.'
+
+"Start Symbol" = <Program>
+
+! ----------------- Character Sets -----------------
+{WS}          = {Whitespace} - {CR} - {LF}
+{StringChars} = {Printable} + {HT} - ["] 
+
+! ----------------- Terminals -----------------
+Whitespace     = {WS}+ 
+NewLine        = {CR}{LF} | {CR} | {LF}
+Identifier     = {Letter}{AlphaNumeric}* 
+StringLiteral  = '"' {StringChars}* '"'
+Number         = {Digit}+ ('.' {Digit}+)? 
+BooleanLiteral = 'true' | 'false' 
+Input          = 'input'
+Comment        = '#' {Printable}* 
+RealComment    = Comment               
+
+! ----------------- Rules -----------------
+
+<Program>       ::= <OptionalNewLine> <Statements> <OptionalNewLineOrEOF>
+                 
+<OptionalNewLine> ::= NewLine | !Empty
+                 
+<OptionalNewLineOrEOF> ::= NewLine | !Empty   
+                        
+<Statements>    ::= <Statement> <Terminator> <Statements>
+                 | <Statement> <Terminator>
+
+<Terminator>    ::= NewLine
+
+<Statement>     ::= <SimpleStatement>
+                 | <BlockStatement>
+                 | RealComment
+
+<SimpleStatement> ::= <Assignment>
+                    | <Print>
+
+<BlockStatement> ::= <If>
+                   | <While>
+                   | <For>
+
+<Assignment>    ::= Identifier '=' <Expression>
+
+<Print>         ::= 'print' <Expression>
+
+<If>            ::= 'if' <Expression> NewLine <Statements> 'end'
+                 | 'if' <Expression> NewLine <Statements> 'else' NewLine <Statements> 'end'
+
+<While>         ::= 'while' <Expression> NewLine <Statements> 'end'
+
+<For>           ::= 'for' Identifier 'in' <Expression> NewLine <Statements> 'end'
+
+<Expression>    ::= <OrExpression>
+
+<OrExpression>  ::= <AndExpression> 'or' <OrExpression>
+                 | <AndExpression>
+
+<AndExpression> ::= <NotExpression> 'and' <AndExpression>
+                 | <NotExpression>
+
+<NotExpression> ::= 'not' <NotExpression>
+                 | <Comparison>
+
+<Comparison>    ::= <Comparison> '>'  <AddExp>
+                 | <Comparison> '<'  <AddExp>
+                 | <Comparison> '>=' <AddExp>
+                 | <Comparison> '<=' <AddExp>
+                 | <Comparison> '==' <AddExp>
+                 | <Comparison> '<>' <AddExp>
+                 | <AddExp>
+
+<AddExp>       ::= <AddExp> '+' <MulExp>
+                | <AddExp> '-' <MulExp>
+                | <MulExp>
+
+<MulExp>       ::= <MulExp> '*' <NegExp>
+                | <MulExp> '/' <NegExp>
+                | <MulExp> '%' <NegExp>      
+                | <NegExp>
+
+<NegExp>       ::= '-' <Value>
+                | <Value>
+
+<Value>        ::= Identifier
+                | Number
+                | StringLiteral
+                | BooleanLiteral
+                | Input
+                | <List>
+                | <Indexing>
+                | '(' <Expression> ')'
+
+<List>         ::= '[' <ListElems> ']'
+
+<ListElems>    ::= <Range>
+                | <Expression> ',' <ListElems>
+                | <Expression>
+                | !Empty
+
+<Range>        ::= <Expression> '..' <Expression>      
+
+<Indexing>     ::= Identifier '[' <Expression> ']'
